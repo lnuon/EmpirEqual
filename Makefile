@@ -2,6 +2,9 @@
 today := $(shell date "+%m%d%y")
 sha1 := $(shell git rev-parse --short=5 HEAD)
 
+WEBSITE_SSH_HOST := ubuntu@35.172.128.65
+WEBSITE_SSH_KEY_PATH := ./keys/EmpirEqual.pem
+
 packagename := $(today)-$(sha1)
 
 tmp := $(shell mktemp -d)
@@ -33,4 +36,6 @@ package: clean-1 test clean-2 archive docker
 
 publish: package
 	scp -i $(WEBSITE_SSH_KEY) ./packages/$(packagename).tgz $(WEBSITE_SSH_HOST):~/
+	ssh -i $(WEBSITE_SSH_KEY) $(WEBSITE_SSH_HOST) \
+		"mkdir $(packagename) && tar -xvzf $(packagename).tgz -C $(packagename) && cd $(packagename) && make dev"
  
