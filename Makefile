@@ -37,5 +37,7 @@ package: clean-1 test clean-2 archive
 publish: package
 	scp -i $(WEBSITE_SSH_KEY_PATH) ./packages/$(packagename).tgz $(WEBSITE_SSH_HOST):~/
 	ssh -i $(WEBSITE_SSH_KEY_PATH) $(WEBSITE_SSH_HOST) \
-		"mkdir $(packagename) && tar -xvzf $(packagename).tgz -C $(packagename) && cd $(packagename) && make dev"
+		"mkdir $(packagename) && tar -xvzf $(packagename).tgz -C $(packagename) \
+			&& (kill $(cat ~/server.pid) || true) \
+			&& cd $(packagename) && make run && echo $? > ~/server.pid"
  
