@@ -3,7 +3,7 @@ today := $(shell date "+%m%d%y")
 sha1 := $(shell git rev-parse --short=5 HEAD)
 
 WEBSITE_SSH_HOST := ubuntu@35.172.128.65
-WEBSITE_SSH_KEY_PATH := ./keys/EmpirEqual.pem
+WEBSITE_SSH_KEY_PATH := ~/Keys/EmpirEqual.pem
 
 packagename := $(today)-$(sha1)
 
