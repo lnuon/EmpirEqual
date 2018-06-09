@@ -12,16 +12,6 @@ tmp := $(shell mktemp -d)
 run:
 	@cd ./src && make dev
 
-clean-1:
-	@git diff-index --quiet HEAD
-	@git clean -xdf
-
-clean-2:
-	@git diff-index --quiet HEAD
-	@git clean -xdf
-
-clean: clean-1
-
 test: 
 	@cd ./src && make test
 
@@ -32,12 +22,12 @@ archive:
 docker:
 	@docker build -t "tsw/www:$(packagename)" .
 
-package: clean-1 test clean-2 archive
+package: test archive
 
 publish: package
 	scp -i $(WEBSITE_SSH_KEY_PATH) ./packages/$(packagename).tgz $(WEBSITE_SSH_HOST):~/
 	ssh -i $(WEBSITE_SSH_KEY_PATH) $(WEBSITE_SSH_HOST) \
 		"mkdir $(packagename) && tar -xvzf $(packagename).tgz -C $(packagename) \
 			&& (kill $(cat ~/server.pid) || true) \
-			&& cd $(packagename) && make run && echo $? > ~/server.pid"
+			&& cd $(packagename) && make run && echo $? > ~/server.pid &"
  
