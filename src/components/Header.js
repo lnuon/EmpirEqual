@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 
-
 class Header extends Component {
   constructor (props) {
       super(props)
@@ -28,6 +27,16 @@ class Header extends Component {
             <li onClick={() => this.changeSelected('')} selected={this.state.selected} pathName="">
               <NavLink to="/">
                 Home
+              </NavLink>
+            </li>
+            <li onClick={() => this.changeSelected('about')} selected={this.state.selected} pathName="about">
+              <NavLink to="/about">
+                About
+              </NavLink>
+            </li>
+            <li onClick={() => this.changeSelected('enter')} selected={this.state.selected} pathName="enter">
+              <NavLink to="/enter">
+                Signup/Login
               </NavLink>
             </li>
           </ul>
