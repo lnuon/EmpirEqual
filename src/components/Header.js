@@ -30,6 +30,16 @@ class Header extends Component {
                 Home
               </NavLink>
             </li>
+            <li onClick={() => this.changeSelected('about')} selected={this.state.selected} pathName="about">
+              <NavLink to="/about">
+                About
+              </NavLink>
+            </li>
+            <li onClick={() => this.changeSelected('enter')} selected={this.state.selected} pathName="enter">
+              <NavLink to="/enter">
+                Signup/Login
+              </NavLink>
+            </li>
           </ul>
         </div>
     )
