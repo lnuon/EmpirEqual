@@ -32,10 +32,10 @@ archive:
 docker:
 	@docker build -t "tsw/www:$(packagename)" .
 
-package: clean-1 test clean-2 archive docker
+package: clean-1 test clean-2 archive
 
 publish: package
-	scp -i $(WEBSITE_SSH_KEY) ./packages/$(packagename).tgz $(WEBSITE_SSH_HOST):~/
-	ssh -i $(WEBSITE_SSH_KEY) $(WEBSITE_SSH_HOST) \
+	scp -i $(WEBSITE_SSH_KEY_PATH) ./packages/$(packagename).tgz $(WEBSITE_SSH_HOST):~/
+	ssh -i $(WEBSITE_SSH_KEY_PATH) $(WEBSITE_SSH_HOST) \
 		"mkdir $(packagename) && tar -xvzf $(packagename).tgz -C $(packagename) && cd $(packagename) && make dev"
  
