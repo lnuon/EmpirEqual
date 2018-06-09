@@ -18,8 +18,7 @@ export default class EmpriEqualSelect extends React.Component {
     return (
       <div style={{ margin: '1rem 0' }}>
         <Select
-          id="color"
-          options={options}
+          options={this.props.options}
           multi={true}
           onChange={this.handleChange}
           onBlur={this.handleBlur}
