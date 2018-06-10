@@ -4,6 +4,7 @@ import EmpirEqualSelect from './EmpirEqualSelect';
 import { withFormik } from 'formik';
 import { Link } from 'react-router-dom';
 import { EnterHolder, EnterButton, EnterFormHolder, EnterInput, EnterLabel } from '../styles/EnterStyled.js';
+import createAccount from '../utils/createAccount';
 
 const InnerForm = props => {
   const {
@@ -137,18 +138,7 @@ const SignUpForm = withFormik({
       setErrors /* setValues, setStatus, and other goodies */,
     }
   ) => {
-    //LoginToMyApp(values).then(
-      //user => {
-        //setSubmitting(false);
-        // do whatevs...
-        // props.updateUser(user)
-      //},
-      //errors => {
-        //setSubmitting(false);
-        // Maybe even transform your API's errors into the same shape as Formik's!
-        //setErrors(transformMyApiErrors(errors));
-      //}
-    //);
+    createAccount(values);
   },
 })(InnerForm);
 

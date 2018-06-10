@@ -25,26 +25,24 @@ class App extends Component {
 
   render() {
     return (
-      <Provider value={true}>
+
         <div>
             <Router
             history={history}
             >
-              {(isLoggedIn) => (
-                <div>
-                  <Header isLoggedIn={isLoggedIn} page=""/>
-                  <Drilldown>
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/about" component={About}/>
-                    <Route exact path="/enter" component={Enter}/>
-                    <Route exact path="/signup" component={SignUp}/>
-                    <Route exact path="/login" component={Login}/>
-                  </Drilldown>
-                </div>
-              )}
+              <div>
+                <Header page=""/>
+                <Drilldown>
+                  <Route exact path="/" component={Home}/>
+                  <Route exact path="/about" component={About}/>
+                  <Route exact path="/enter" component={Enter}/>
+                  <Route exact path="/signup" component={SignUp}/>
+                  <Route exact path="/login" component={Login}/>
+                </Drilldown>
+              </div>
             </Router>
         </div>
-      </Provider>
+
     );
   }
 }
