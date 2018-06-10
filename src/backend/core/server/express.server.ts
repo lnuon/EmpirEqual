@@ -99,12 +99,14 @@ export class ExpressServer implements CanRun {
         let _application = this._application;
 
         let staticPathsObj = Reflect.getMetadata(metadata.staticsPropertyId, controller.constructor);
-        let serverFilesystemPath = staticPathsObj.modulePath;
-        let urlPath = staticPathsObj.serverPath;
-        let staticsPathUrl = path.normalize(`${controllerMetadata.path}/${urlPath}`);
-        let staticsPathAbs = path.normalize(`${controllerMetadata.dirname}/${serverFilesystemPath}`);
+        if (staticPathsObj) {
+            let serverFilesystemPath = staticPathsObj.modulePath;
+            let urlPath = staticPathsObj.serverPath;
+            let staticsPathUrl = path.normalize(`${controllerMetadata.path}/${urlPath}`);
+            let staticsPathAbs = path.normalize(`${controllerMetadata.dirname}/${serverFilesystemPath}`);
 
-        this._appRouter.use(staticsPathUrl, express.static(staticsPathAbs));
+            this._appRouter.use(staticsPathUrl, express.static(staticsPathAbs));
+        }
     }
 
     private setViews(controller: HttpController, controllerMetadata: any) {
