@@ -59,7 +59,7 @@ const MainNav = styled.ul`
 `
 
 const NavItem = styled.li`
-  a {
+  > a {
     text-decoration: none;
   }
   margin: 1em;
