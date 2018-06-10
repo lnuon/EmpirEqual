@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import EmpirEqualSelect from './EmpirEqualSelect';
 import { withFormik } from 'formik';
+import { Link } from 'react-router-dom';
+import { EnterHolder, EnterButton, EnterFormHolder, EnterInput, EnterLabel } from '../styles/EnterStyled.js';
 
 const InnerForm = props => {
   const {
     values,
     touched,
-    dirty,
     errors,
     handleChange,
     handleBlur,
@@ -18,21 +19,24 @@ const InnerForm = props => {
     isSubmitting,
   } = props;
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <EnterFormHolder onSubmit={handleSubmit}>
+      <EnterLabel>FIRST NAME</EnterLabel>
+      <EnterInput
         type="firstName"
         name="firstName"
         onChange={handleChange}
         onBlur={handleBlur}
         value={values.firstName}
       />
-      <input
+      <EnterLabel>LAST NAME</EnterLabel>
+      <EnterInput
         type="lastName"
         name="lastName"
         onChange={handleChange}
         onBlur={handleBlur}
         value={values.lastName}
       />
+      <EnterLabel>ETHNICITY</EnterLabel>
       <EmpirEqualSelect
         name="ethnicity"
         value={values.ethnicity}
@@ -45,6 +49,7 @@ const InnerForm = props => {
            { value: 'two', label: 'Two' },
          ]}
       />
+      <EnterLabel>ORIENTATION</EnterLabel>
       <EmpirEqualSelect
         name="orientation"
         value={values.orientation}
@@ -57,6 +62,7 @@ const InnerForm = props => {
            { value: 'two', label: 'Two' },
          ]}
       />
+      <EnterLabel>AGE</EnterLabel>
       <EmpirEqualSelect
         name="age"
         value={values.age}
@@ -69,6 +75,7 @@ const InnerForm = props => {
            { value: 'two', label: 'Two' },
          ]}
       />
+      <EnterLabel>GENDER</EnterLabel>
       <EmpirEqualSelect
         name="gender"
         value={values.gender}
@@ -81,6 +88,7 @@ const InnerForm = props => {
            { value: 'two', label: 'Two' },
          ]}
       />
+      <EnterLabel>INDUSTRY</EnterLabel>
       <EmpirEqualSelect
         name="industry"
         value={values.industry}
@@ -93,26 +101,26 @@ const InnerForm = props => {
            { value: 'two', label: 'Two' },
          ]}
       />
-      <input
+      <EnterLabel>EMAIL</EnterLabel>
+      <EnterInput
         type="email"
         name="email"
         onChange={handleChange}
         onBlur={handleBlur}
         value={values.email}
       />
-      {touched.email && errors.email && <div>{errors.email}</div>}
-      <input
+      <EnterLabel>PASSWORD</EnterLabel>
+      <EnterInput
         type="password"
         name="password"
         onChange={handleChange}
         onBlur={handleBlur}
         value={values.password}
       />
-      {touched.password && errors.password && <div>{errors.password}</div>}
-      <button type="submit" disabled={isSubmitting}>
-        Submit
-      </button>
-    </form>
+      <EnterButton type="submit" disabled={isSubmitting}>
+        Create Account
+      </EnterButton>
+    </EnterFormHolder>
 )};
 
 // Wrap our form with the using withFormik HoC
@@ -120,17 +128,6 @@ const SignUpForm = withFormik({
   // Transform outer props into form values
   mapPropsToValues: props => ({ firstName: '', lastName: '', ethnicity: '', orientation: '', age: '', gender: '', industry: '', email: '', password: '' }),
   // Add a custom validation function (this can be async too!)
-  validate: (values, props) => {
-    const errors = {};
-    if (!values.email) {
-      errors.email = 'Required';
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = 'Invalid email address';
-    }
-    return errors;
-  },
   // Submission handler
   handleSubmit: (
     values,
@@ -158,12 +155,26 @@ const SignUpForm = withFormik({
 class SignUp extends Component {
   render() {
     return (
-      <div>
+      <EnterHolder>
+        <ExitButton to="/login">X</ExitButton>
         <h1>Sign Up</h1>
         <SignUpForm />
-      </div>
+      </EnterHolder>
     );
   }
 }
 
 export default SignUp;
+
+
+const ExitButton = styled(Link)`
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  text-decoration: none;
+  width: 100%;
+  padding-right: 20%;
+  text-align: right;
+  padding-top: 2%;
+  font-family: "Myraid Pro", sans-serif;
+`
