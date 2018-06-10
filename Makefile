@@ -19,7 +19,8 @@ run:
 
 .PHONY: test
 test: 
-	@cd ./src && make test
+	@echo add tests...
+#	@cd ./src && make test
 
 .PHONY: archive
 archive:
@@ -41,6 +42,7 @@ copy-to-server:
 	ssh -i $(WEBSITE_SSH_KEY_PATH) $(WEBSITE_SSH_HOST) \
 		'sudo -- sh -c "cp /home/ubuntu/$(packagename).tgz /root && whoami && ls -lrta /root \
 			&& mkdir -p /root/$(packagename) && tar -xvzf /root/$(packagename).tgz -C /root/$(packagename) \
+			&& make build \
 			&& mkdir -p /root/.config/systemd/user \
 			&& cp /root/$(packagename)/empirequal.svc /etc/systemd/system/empirequal.service \
 			&& systemctl daemon-reload"'
