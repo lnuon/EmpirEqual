@@ -1,14 +1,39 @@
 import { css } from 'styled-components';
 
-
 export const normalize = css`
   html,
   body {
     font-size: 100%;
+    margin: 0;
+    height: 100%;
+  }
+
+  #root {
+    width: 100%;
+  }
+
+  .Select-control {
+    height: 59px;
+    background-color: #eaeaea;
+    border: 2px solid black;
+    border-radius: 0;
+    width: 102%;
+    margin-left: -1%;
+    margin-top: -3px;
+  }
+
+  .Select-placeholder {
+    margin-top: 10px;
+    font-family: 'Crete Round', sans-serif;
+    color: black;
+  }
+
+  .Select-arrow {
+    border-color: black;
   }
 
   body {
-    font-family: 'Crete Round', serif;    
+    font-family: 'Crete Round', serif;
     position: relative;
     -webkit-font-smoothing: antialiased;
     font-smooth: antialiased;

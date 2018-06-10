@@ -16,7 +16,7 @@ export default class EmpriEqualSelect extends React.Component {
 
   render() {
     return (
-      <div style={{ margin: '1rem 0' }}>
+      <StyledSelect>
         <Select
           options={this.props.options}
           multi={true}
@@ -30,7 +30,15 @@ export default class EmpriEqualSelect extends React.Component {
             {this.props.error}
           </div>
         )}
-      </div>
+      </StyledSelect>
     );
   }
 }
+
+const StyledSelect = styled.div`
+  margin: 2.5%;
+  width: 95%;
+  max-width: 400px;
+  height: 55px;
+  font-size: 26px;
+`
