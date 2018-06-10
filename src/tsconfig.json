@@ -24,7 +24,8 @@
             "*": [
                 "backend/*"
             ]
-        }
+        },
+        "outDir": "dist"
     },
     "include": [
         "backend/**/*.ts",
