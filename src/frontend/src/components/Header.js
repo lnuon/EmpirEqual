@@ -23,8 +23,11 @@ class Header extends Component {
   }
 
   render() {
+    const { isLoggedIn } = this.props;
     return (
-          <HeaderContainer>
+      <AppContext.Consumer>
+        {(isLoggedIn) => (
+          <HeaderContainer isLoggedIn={ isLoggedIn }>
             <MainNav>
               <NavItem onClick={console.log('not today')} selected={this.state.selected} pathName="">
                 <NavLink to="/">
@@ -37,6 +40,8 @@ class Header extends Component {
               </NavItem>
             </MainNav>
           </HeaderContainer>
+        )}
+      </AppContext.Consumer>
       )
   }
 }
