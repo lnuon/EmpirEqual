@@ -5,6 +5,7 @@ import InteractionLogo from '../assests/icons/EMP_Two_People.png'
 import MeetingsLogo from '../assests/icons/EMP_Group.png'
 import SaySomethingLogo from '../assests/icons/EMP_Chat_Bubble.png'
 import SupportLogo from '../assests/icons/EMP_books.png'
+import KudosLogo from '../assests/icons/EMP_thumbs_up.png'
 
 class DashBoard extends Component {
   render() {
@@ -38,15 +39,17 @@ class DashBoard extends Component {
 					<DashLink to="/support">
 						<DashImage src={SupportLogo}/>
 						<DashItemTitle>
-              SUPPORT & RESOURCES
+              SUPPORT &amp; RESOURCES
 						</DashItemTitle>
 					</DashLink>
 				</DashItem>
         <KudosButton>
-          <KudosImage />
-          <KudosTitle>
-            Kudos
-          </KudosTitle>
+          <KudosLink to="/kudos">
+            <KudosImage src={KudosLogo}/>
+            <KudosTitle>
+              Kudos
+            </KudosTitle>
+          </KudosLink>
         </KudosButton>
       </DashBoardHolder>
     );
@@ -70,7 +73,7 @@ const DashItem = styled.div`
   justify-content: center;
   align-items: center;
   height: 40vw;
-  max-height: 200px;
+  max-height: 300px;
   text-align: center;
 `
 
@@ -86,22 +89,43 @@ const DashLink = styled(Link)`
 `
 
 const DashImage = styled.img`
-  width: 80%;
+  width: 45%;
+  max-width: 100px;
+  margin-bottom: 10px;
 `
 
 const DashItemTitle = styled.div`
-  font-size: 20px;
+  font-size: 16px;
 `
 
-const KudosImage = styled.div`
-    width: 20%;
+const KudosImage = styled.img`
+    width: 15%;
     max-width: 100px;
+    margin-bottom: 10px;
 `
 
 const KudosTitle = styled.div`
-  color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 `
 
 const KudosButton = styled.div`
   background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10% 6%;
+`
+
+const KudosLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  font-family: 'Montserrat', sans-serif;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
 `

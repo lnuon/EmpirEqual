@@ -8,7 +8,8 @@ import SignUp from './components/SignUp.js';
 import Login from './components/Login.js';
 import Dashboard from './components/Dashboard.js';
 import Feed from './components/Feed.js';
-import Meetings from './components/Feed.js';
+import Meetings from './components/Meetings.js';
+import MeetingQs from './components/MeetingQuestions.js';
 import Profile from './components/Profile.js';
 import SaySomething from './components/Profile.js';
 import styled, { injectGlobal } from 'styled-components';
@@ -28,31 +29,26 @@ class App extends Component {
 
   render() {
     return (
-      <Provider value={true}>
-        <BodyHolder>
-            <Router
-            history={history}>
-              <Consumer>
-                {(isLoggedIn) => (
-                  <div>
-                    <Header isLoggedIn={isLoggedIn} page=""/>
-                    <Drilldown>
-                      <Route exact path="/" component={Home}/>
-                      <Route exact path="/login" component={Login}/>
-                      <Route exact path="/signup" component={SignUp}/>
-                      <Route exact path="/interactions" component={Home}/>
-                      <Route exact path="/meetings" component={Meetings}/>
-                      <Route exact path="/profile" component={Profile}/>
-                      <Route exact path="/say-something" component={Home}/>
-                      <Route exact path="/support" component={Home}/>
-                      <Route exact path="/feed" component={Feed}/>
-                    </Drilldown>
-                  </div>
-                )}
-              </Consumer>
-            </Router>
-        </BodyHolder>
-      </Provider>
+      <BodyHolder>
+          <Router
+          history={history}>
+            <div>
+              <Header page=""/>
+              <Drilldown>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/login" component={Login}/>
+                <Route exact path="/signup" component={SignUp}/>
+                <Route exact path="/interactions" component={Home}/>
+                <Route exact path="/meetings" component={Meetings}/>
+                <Route exact path="/meetingQs" component={MeetingQs}/>
+                <Route exact path="/profile" component={Profile}/>
+                <Route exact path="/say-something" component={Home}/>
+                <Route exact path="/support" component={Home}/>
+                <Route exact path="/feed" component={Feed}/>
+              </Drilldown>
+            </div>
+          </Router>
+      </BodyHolder>
     );
   }
 }
