@@ -51,10 +51,11 @@ export class UsersController extends HttpController {
     public createUsers(req: Request, res: Response, next: NextFunction) {
         var temp: any = req.body;
 
-        var user = new User(v4(), temp.email, temp.fullname, temp.password, temp.age, temp.description)
+        var userId = v4()
+        var user = new User(userId, temp.email, temp.fullname, temp.password, temp.age, temp.description)
         
         var result = User.Save(user)
-            .then(() => res.sendStatus(200))
+            .then(() => res.json(user))
             .catch((err) => {
                 this._log.error(err)
                 res.sendStatus(500)
