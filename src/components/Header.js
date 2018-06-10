@@ -52,7 +52,11 @@ export default withRouter(Header);
 
 const HeaderContainer = styled.div`
   display: flex;
+<<<<<<< HEAD
   width: ${props => props.isLoggedIn ? '50%' : '100%'};
+=======
+  width: 40%;
+>>>>>>> 992b0365c265a29bd41eed0b748f9379c4695ea0
 `
 
 const MainNav = styled.ul`
