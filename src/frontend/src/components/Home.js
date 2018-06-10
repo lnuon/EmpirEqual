@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Dashboard from './Dashboard.js';
 
 const HomepageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding: 0 32px;
+	max-width: 500px;
+	margin-right: auto;
+	margin-left: auto;
 `;
 
 const HeroSection = styled.section`
@@ -37,7 +40,7 @@ class Home extends Component {
   render() {
     return (
       <HomepageContainer>
-				<HeroSection>
+				{/*}<HeroSection>
 					<HeroTitle>EmpirEqual</HeroTitle>
 					<Tagline>Company Culture Analytics + Preventative Solutions</Tagline>
 					<Link to="/login">
@@ -46,7 +49,8 @@ class Home extends Component {
 				</HeroSection>
 				<InfoSection>
 					<InfoTitle>App info</InfoTitle>
-				</InfoSection>
+				</InfoSection>*/}
+				<Dashboard />
       </HomepageContainer>
     );
   }

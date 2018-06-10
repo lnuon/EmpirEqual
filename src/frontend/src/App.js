@@ -9,11 +9,14 @@ import Login from './components/Login.js';
 import Dashboard from './components/Dashboard.js';
 import Feed from './components/Feed.js';
 import Profile from './components/Profile.js';
-import styled from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 import createBrowserHistory from 'history/createBrowserHistory';
+import globalStyles from './styles/global';
 
 const AppContext = React.createContext();
 const history = createBrowserHistory()
+
+injectGlobal`${globalStyles}`;
 
 class App extends Component {
   constructor(props) {
@@ -36,7 +39,7 @@ class App extends Component {
             history={history}
             >
               <div>
-                <Header isLoggedIn={(isLoggedIn) => isLoggedIn} page=""/>
+                <Header page=""/>
                 <Drilldown>
                   <Route exact path="/" component={Home}/>
                   <Route exact path="/login" component={Login}/>
@@ -44,6 +47,10 @@ class App extends Component {
                   <Route exact path="/dashboard" compontent={Dashboard}/>
                   <Route exact path="/profile" compontent={Profile}/>
                   <Route exact path="/feed" compontent={Feed}/>
+                  <Route exact path="/meetings" component={Home}/>
+                  <Route exact path="/interactins" compontent={Home}/>
+                  <Route exact path="/say-something" compontent={Home}/>
+                  <Route exact path="/support" compontent={Home}/>
                 </Drilldown>
               </div>
             </Router>
@@ -57,5 +64,5 @@ export default App;
 
 const BodyHolder = styled.div`
   height: 100%;
-margin-bottom:100px;
+  margin-bottom:100px;
 `
