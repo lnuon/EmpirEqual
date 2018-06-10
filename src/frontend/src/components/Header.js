@@ -23,8 +23,9 @@ class Header extends Component {
   }
 
   render() {
+    const { isLoggedIn } = this.props;
     return (
-          <HeaderContainer>
+          <HeaderContainer isLoggedIn={ isLoggedIn }>
             <MainNav>
               <NavItem onClick={() => this.changeSelected('')} selected={this.state.selected} pathName="">
                 <NavLink to="/">

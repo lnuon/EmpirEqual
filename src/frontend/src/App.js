@@ -6,49 +6,49 @@ import Home from './components/Home.js';
 import About from './components/About.js';
 import SignUp from './components/SignUp.js';
 import Login from './components/Login.js';
+import styled, { injectGlobal } from 'styled-components';
 import Dashboard from './components/Dashboard.js';
 import Feed from './components/Feed.js';
 import Profile from './components/Profile.js';
-import styled from 'styled-components';
 import createBrowserHistory from 'history/createBrowserHistory';
+import globalStyles from './styles/global';
 
-const AppContext = React.createContext();
-const history = createBrowserHistory()
+const { Provider, Consumer } = React.createContext(false);
+
+const history = createBrowserHistory();
+
+injectGlobal`${globalStyles}`;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: true
-    }
-    this.updateValue = this.updateValue.bind(this);
-  }
+
   updateValue = (key, val) => {
      this.setState({[key]: val});
   }
+  
   render() {
     return (
-      <AppContext.Provider value={{
-                                state: this.state,
-                                updateValue: this.updateValue}}>
+      <Provider value={true}>
         <BodyHolder>
             <Router
             history={history}
             >
-              <div>
-                <Header isLoggedIn={(isLoggedIn) => isLoggedIn} page=""/>
-                <Drilldown>
-                  <Route exact path="/" component={Home}/>
-                  <Route exact path="/login" component={Login}/>
-                  <Route exact path="/signup" component={SignUp}/>
-                  <Route exact path="/dashboard" compontent={Dashboard}/>
-                  <Route exact path="/profile" compontent={Profile}/>
-                  <Route exact path="/feed" compontent={Feed}/>
-                </Drilldown>
-              </div>
+              <Consumer>
+                {(isLoggedIn) => (
+                  <div>
+                    <Header isLoggedIn={isLoggedIn} page=""/>
+                    <Drilldown>
+                      <Route exact path="/" component={Home}/>
+                      <Route exact path="/about" component={About}/>
+                      <Route exact path="/enter" component={Enter}/>
+                      <Route exact path="/signup" component={SignUp}/>
+                      <Route exact path="/login" component={Login}/>
+                    </Drilldown>
+                  </div>
+                )}
+              </Consumer>
             </Router>
         </BodyHolder>
-      </AppContext.Provider>
+      </Provider>
     );
   }
 }
