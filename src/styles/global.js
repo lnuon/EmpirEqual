@@ -1,14 +1,19 @@
 import { css } from 'styled-components';
 
-
 export const normalize = css`
   html,
   body {
     font-size: 100%;
+    margin: 0;
+    height: 100%;
+  }
+
+  #root {
+    width: 100%;
   }
 
   body {
-    font-family: 'Crete Round', serif;    
+    font-family: 'Crete Round', serif;
     position: relative;
     -webkit-font-smoothing: antialiased;
     font-smooth: antialiased;

@@ -40,7 +40,7 @@ class Home extends Component {
 				<HeroSection>
 					<HeroTitle>EmpirEqual</HeroTitle>
 					<Tagline>Company Culture Analytics + Preventative Solutions</Tagline>
-					<Link to="/enter">
+					<Link to="/login">
 						<CallToAction>Try it out!</CallToAction>
 					</Link>
 				</HeroSection>

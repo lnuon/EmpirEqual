@@ -4,14 +4,12 @@ import Drilldown from 'react-router-drilldown';
 import Header from './components/Header.js';
 import Home from './components/Home.js';
 import About from './components/About.js';
-import Enter from './components/Enter.js';
 import SignUp from './components/SignUp.js';
 import Login from './components/Login.js';
 import styled from 'styled-components';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 const AppContext = React.createContext();
-
 const history = createBrowserHistory()
 
 class App extends Component {
@@ -30,29 +28,29 @@ class App extends Component {
       <AppContext.Provider value={{
                                 state: this.state,
                                 updateValue: this.updateValue}}>
-        <div>
+        <BodyHolder>
             <Router
             history={history}
             >
-              <AppContext.Consumer>
-                {(isLoggedIn) => (
-                  <div>
-                    <Header isLoggedIn={(isLoggedIn) => isLoggedIn} page=""/>
-                    <Drilldown>
-                      <Route exact path="/" component={Home}/>
-                      <Route exact path="/about" component={About}/>
-                      <Route exact path="/enter" component={Enter}/>
-                      <Route exact path="/signup" component={SignUp}/>
-                      <Route exact path="/login" component={Login}/>
-                    </Drilldown>
-                  </div>
-                )}
-              </AppContext.Consumer>
+              <div>
+                <Header isLoggedIn={(isLoggedIn) => isLoggedIn} page=""/>
+                <Drilldown>
+                  <Route exact path="/" component={Home}/>
+                  <Route exact path="/about" component={About}/>
+                  <Route exact path="/signup" component={SignUp}/>
+                  <Route exact path="/login" component={Login}/>
+                </Drilldown>
+              </div>
             </Router>
-        </div>
+        </BodyHolder>
       </AppContext.Provider>
     );
   }
 }
 
 export default App;
+
+const BodyHolder = styled.div`
+  height: 100%;
+margin-bottom:100px;
+`

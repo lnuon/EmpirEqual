@@ -18,7 +18,7 @@ const InnerForm = props => {
     isSubmitting,
   } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <SignUpFormHolder onSubmit={handleSubmit}>
       <input
         type="firstName"
         name="firstName"
@@ -109,10 +109,10 @@ const InnerForm = props => {
         value={values.password}
       />
       {touched.password && errors.password && <div>{errors.password}</div>}
-      <button type="submit" disabled={isSubmitting}>
-        Submit
-      </button>
-    </form>
+      <SignUpButton type="submit" disabled={isSubmitting}>
+        Create Account
+      </SignUpButton>
+    </SignUpFormHolder>
 )};
 
 // Wrap our form with the using withFormik HoC
@@ -167,3 +167,21 @@ class SignUp extends Component {
 }
 
 export default SignUp;
+
+const SignUpButton = styled.button`
+  background-color: #00a568
+  height: 45px;
+  width: 95%;
+  margin: 2.5%;
+  text-decoration: none;
+  color: black;
+`
+
+const SignUpFormHolder = styled.form`
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
