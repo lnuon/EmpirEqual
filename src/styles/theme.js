@@ -1,8 +1,16 @@
 import { css } from 'styled-components';
 
-const colors = {};
+const colors = {
+	blue: '#00baf2',
+	yellow: '#fcd947',
+	green: '#00a668',
+	white: '#ffffff'
+};
+
+const logoBorder = 4.32;
 
 export default {
+	colors: colors,
 	breakpoints: {
 		mobileS: 320,
 		mobileM: 375,
