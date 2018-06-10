@@ -7,7 +7,7 @@ import ExitLogo from '../assests/icons/EMP_Asset_11.png'
 import LeftArrow from '../assests/icons/EMP_Asset_10.png'
 import RightArrow from '../assests/icons/EMP_Asset_12.png'
 
-class MeetingQuestions extends Component {
+class ThankYou extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -21,43 +21,26 @@ class MeetingQuestions extends Component {
   render() {
     return (
       <QuestionsHolder>
-        <QuestionItem>
-          <QuestionTitle onClick={() => this.selectQ(1)}>
-              Were ideas and insights accurately attributed in this meeting?
-          </QuestionTitle>
-        </QuestionItem>
-        <QuestionItem>
-          <QuestionTitle onClick={() => this.selectQ(2)}>
-            At any point, do you feel like your ideas were dismissed?
-          </QuestionTitle>
-        </QuestionItem>
-        <QuestionItem>
-          <QuestionTitle onClick={() => this.selectQ(3)}>
-            I was interrupted
-          </QuestionTitle>
-        </QuestionItem>
-        <QuestionItem>
-          <QuestionTitle onClick={() => this.selectQ(4)}>
-            My ideas were appropriated
-          </QuestionTitle>
-        </QuestionItem>
-        <ExitButton>
-          <ExitLink to="/meetings">
-            <ExitImage src={LeftArrow}/>
-          </ExitLink>
-          <ExitLink to="/">
-            <ExitImage src={ExitLogo}/>
-          </ExitLink>
-          <ExitLink to="/thankyou">
-            <ExitImage src={RightArrow}/>
-          </ExitLink>
-        </ExitButton>
+          <QuestionItem>
+            Thank you for your feedback!
+          </QuestionItem>
+          <ExitButton>
+            <ExitLink to="/meetingQs">
+              <ExitImage src={LeftArrow}/>
+            </ExitLink>
+            <ExitLink to="/">
+              <ExitImage src={ExitLogo}/>
+            </ExitLink>
+            <ExitLink to="/">
+              <ExitImage src={RightArrow}/>
+            </ExitLink>
+          </ExitButton>
       </QuestionsHolder>
     );
   }
 }
 
-export default MeetingQuestions;
+export default ThankYou;
 
 const QuestionsHolder = styled.div`
   display: flex;
@@ -79,8 +62,7 @@ const QuestionItem = styled.div`
   text-decoration: none;
   color: white;
   height: 50vw;
-  max-height: 150px;
-  border-bottom: 1px solid white;
+  max-height: 200px;
   text-align: center;
 `
 
