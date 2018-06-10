@@ -10,7 +10,7 @@ export const EnterHolder = styled.div`
 `
 export const EnterButton = styled.button`
   background-color: #00a568
-  height: 45px;
+  height: 60px;
   width: 95%;
   margin: 2.5%;
   text-decoration: none;

@@ -1,3 +1,10 @@
+src/frontend/build
+
+node_modules
+bower_components
+dist
+packages
+temp.html
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies

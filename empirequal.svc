@@ -1,0 +1,13 @@
+[Unit]
+AssertPathExists=/root/empirequal
+
+[Service]
+WorkingDirectory=/root/empirequal
+Environment=
+ExecStart=/usr/bin/make run
+Restart=always
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

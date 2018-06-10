@@ -8,7 +8,6 @@ const InnerForm = props => {
   const {
     values,
     touched,
-    dirty,
     errors,
     handleChange,
     handleBlur,

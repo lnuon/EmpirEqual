@@ -91,23 +91,6 @@ const LoginImage = styled.img`
   margin-bottom: 50px;
 `
 
-const LoginHolder = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-`
-
-const LoginFormHolder = styled.form`
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`
-
 const LoginLink = styled.a`
   font-size: 16px;
   font-family: 'Myraid Pro', sans-serif;
@@ -116,26 +99,6 @@ const LoginLink = styled.a`
   margin-right: 2.5%;
   font-weight: 100;
   margin-bottom: 7px;
-`
-
-const LoginField = styled.input`
-  width: 95%;
-  margin: 2.5%;
-  background-color: #eaeaea;
-  border: 2px solid black;
-  max-width: 400px;
-  height: 55px;
-  font-size: 26px;
-`
-
-const LoginButton = styled.button`
-  background-color: #00a568
-  height: 55px;
-  width: 95%;
-  margin: 2.5%;
-  text-decoration: none;
-  color: black;
-  font-size: 26px;
 `
 
 const NewAccountButton = styled(Link)`

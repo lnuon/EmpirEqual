@@ -6,6 +6,9 @@ import Home from './components/Home.js';
 import About from './components/About.js';
 import SignUp from './components/SignUp.js';
 import Login from './components/Login.js';
+import Dashboard from './components/Dashboard.js';
+import Feed from './components/Feed.js';
+import Profile from './components/Profile.js';
 import styled from 'styled-components';
 import createBrowserHistory from 'history/createBrowserHistory';
 
@@ -36,9 +39,11 @@ class App extends Component {
                 <Header isLoggedIn={(isLoggedIn) => isLoggedIn} page=""/>
                 <Drilldown>
                   <Route exact path="/" component={Home}/>
-                  <Route exact path="/about" component={About}/>
-                  <Route exact path="/signup" component={SignUp}/>
                   <Route exact path="/login" component={Login}/>
+                  <Route exact path="/signup" component={SignUp}/>
+                  <Route exact path="/dashboard" compontent={Dashboard}/>
+                  <Route exact path="/profile" compontent={Profile}/>
+                  <Route exact path="/feed" compontent={Feed}/>
                 </Drilldown>
               </div>
             </Router>
