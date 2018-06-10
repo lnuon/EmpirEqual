@@ -15,6 +15,7 @@
   "author": "NeverOddOrEven",
   "license": "MIT",
   "dependencies": {
+    "@types/mongodb": "^3.0.19",
     "express": "^4.16.3",
     "formik": "^0.11.11",
     "glob": "^7.1.2",
@@ -23,6 +24,7 @@
     "inversify": "^4.13.0",
     "inversify-binding-decorators": "^4.0.0",
     "lodash": "^4.17.10",
+    "mongodb": "^3.0.10",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router": "^4.3.1",
