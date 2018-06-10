@@ -16,6 +16,7 @@ export const EnterButton = styled.button`
   text-decoration: none;
   color: black;
   font-size: 26px;
+  font-family: "myraid pro", sans-serif;
 `
 
 export const EnterFormHolder = styled.form`

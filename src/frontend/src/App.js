@@ -39,7 +39,7 @@ class App extends Component {
             history={history}
             >
               <div>
-                <Header page=""/>
+                {/*<Header page=""/>*/}
                 <Drilldown>
                   <Route exact path="/" component={Home}/>
                   <Route exact path="/login" component={Login}/>
