@@ -12,3 +12,12 @@ make run
 make publish
 ```
     
+
+```
+curl -H 'Content-Type: application/json' \
+    -d '{ \
+        "name": "alex", \
+        "password": "test" \
+    }' \
+    -X POST http://localhost:7000/users
+```

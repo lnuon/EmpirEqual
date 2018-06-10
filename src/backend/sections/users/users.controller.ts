@@ -28,9 +28,8 @@ export class UsersController extends HttpController {
 
     @mvc.http.post("/")
     public createUsers(req: Request, res: Response, next: NextFunction) {
-        var user = {
-            name: req.params('name'),
-            password: req.params('password')
-        }
+        console.log(req.body);
+
+        res.json({})
     }
 }

@@ -9,6 +9,7 @@ import { HttpController } from 'core/interfaces/http.controller';
 import { registerPartial, localsAsTemplateData, __express as hbs } from 'hbs';
 import { Router, Application, NextFunction, Request, Response } from 'express';
 import { RequestLog, Log, AppLog } from 'core/server/log';
+import { json } from 'body-parser'
 import express from 'express';
 import glob from 'glob';
 import path from 'path';
@@ -46,6 +47,8 @@ export class ExpressServer implements CanRun {
 
         _application.use(_appRouter);
         _application.use(_staticsRouter);
+
+        _appRouter.use(json());
 
         let sP = path.normalize(`./bower_components`) 
         _staticsRouter.use('/lib', express.static(sP))
