@@ -42,9 +42,10 @@ copy-to-server:
 	ssh -i $(WEBSITE_SSH_KEY_PATH) $(WEBSITE_SSH_HOST) \
 		'sudo -- sh -c "cp /home/ubuntu/$(packagename).tgz /root && whoami && ls -lrta /root && cd /root \
 			&& mkdir -p ./$(packagename) && tar -xvzf ./$(packagename).tgz -C ./$(packagename) \
-			&& make build \
 			&& mkdir -p .config/systemd/user \
 			&& cp ./$(packagename)/empirequal.svc /etc/systemd/system/empirequal.service \
+			&& cd ./$(packagename) \
+			&& make build \
 			&& systemctl daemon-reload"'
 	@echo artifact uploaded...
 
