@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { withFormik } from 'formik';
 import MainLogo from '../assests/EmpirEqual_Login.svg';
 import { Link } from 'react-router-dom';
+import { EnterHolder, EnterButton, EnterFormHolder, EnterInput, EnterLabel } from '../styles/EnterStyled.js';
 
 const InnerForm = ({
   values,
@@ -13,9 +14,9 @@ const InnerForm = ({
   handleSubmit,
   isSubmitting,
 }) => (
-  <LoginFormHolder onSubmit={handleSubmit}>
-    <LoginLabel>USERNAME</LoginLabel>
-    <LoginField
+  <EnterFormHolder onSubmit={handleSubmit}>
+    <EnterLabel>USERNAME</EnterLabel>
+    <EnterInput
       type="username"
       name="username"
       onChange={handleChange}
@@ -23,8 +24,8 @@ const InnerForm = ({
       value={values.username}
     />
     {touched.email && errors.email && <div>{errors.email}</div>}
-    <LoginLabel>PASSWORD</LoginLabel>
-    <LoginField
+    <EnterLabel>PASSWORD</EnterLabel>
+    <EnterInput
       type="password"
       name="password"
       onChange={handleChange}
@@ -32,13 +33,13 @@ const InnerForm = ({
       value={values.password}
     />
     {touched.password && errors.password && <div>{errors.password}</div>}
-    <LoginButton type="submit" disabled={isSubmitting}>
+    <EnterButton type="submit" disabled={isSubmitting}>
       LOG IN
-    </LoginButton>
+    </EnterButton>
     <NewAccountButton to="/signup">NEW ACCOUNT</NewAccountButton>
     <LoginLink to="/">FORGOT USERNAME</LoginLink>
     <LoginLink to="/">FORGOT PASSWORD</LoginLink>
-  </LoginFormHolder>
+  </EnterFormHolder>
 );
 
 // Wrap our form with the using withFormik HoC
@@ -74,10 +75,10 @@ const LoginForm = withFormik({
 class Login extends Component {
   render() {
     return (
-      <LoginHolder>
+      <EnterHolder>
         <LoginImage src={MainLogo}/>
         <LoginForm />
-      </LoginHolder>
+      </EnterHolder>
     );
   }
 }
@@ -88,15 +89,6 @@ const LoginImage = styled.img`
   width: 60%;
   height: auto;
   margin-bottom: 50px;
-`
-
-const LoginLabel = styled.label`
-  font-size: 16px;
-  font-family: 'Myraid Pro', sans-serif;
-  margin: 0;
-  align-self: flex-start;
-  margin-left: 2.5%;
-  font-weight: 100;
 `
 
 const LoginHolder = styled.div`
