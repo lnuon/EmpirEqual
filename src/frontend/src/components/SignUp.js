@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import EmpirEqualSelect from './EmpirEqualSelect';
 import { withFormik } from 'formik';
+import { Link } from 'react-router-dom';
 import { EnterHolder, EnterButton, EnterFormHolder, EnterInput, EnterLabel } from '../styles/EnterStyled.js';
 
 const InnerForm = props => {
@@ -155,6 +156,7 @@ class SignUp extends Component {
   render() {
     return (
       <EnterHolder>
+        <ExitButton to="/login">X</ExitButton>
         <h1>Sign Up</h1>
         <SignUpForm />
       </EnterHolder>
@@ -163,3 +165,16 @@ class SignUp extends Component {
 }
 
 export default SignUp;
+
+
+const ExitButton = styled(Link)`
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  text-decoration: none;
+  width: 100%;
+  padding-right: 20%;
+  text-align: right;
+  padding-top: 2%;
+  font-family: "Myraid Pro", sans-serif;
+`

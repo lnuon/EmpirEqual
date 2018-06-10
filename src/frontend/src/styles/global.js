@@ -24,7 +24,7 @@ export const normalize = css`
 
   .Select-placeholder {
     margin-top: 10px;
-    font-family: 'Crete Round', sans-serif;
+    font-family: 'myraid pro', sans-serif;
     color: black;
   }
 

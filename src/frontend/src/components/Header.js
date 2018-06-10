@@ -23,21 +23,25 @@ class Header extends Component {
   }
 
   render() {
+    const { isLoggedIn } = this.props;
     return (
-          <HeaderContainer>
+      <AppContext.Consumer>
+        {(isLoggedIn) => (
+          <HeaderContainer isLoggedIn={ isLoggedIn }>
             <MainNav>
-              <NavItem onClick={() => this.changeSelected('')} selected={this.state.selected} pathName="">
+              <NavItem onClick={console.log('not today')} selected={this.state.selected} pathName="">
                 <NavLink to="/">
-                  <HeaderImage src={HomeLogo}/>
                 </NavLink>
               </NavItem>
               <NavItem className="right" onClick={() => this.changeSelected('login')} selected={this.state.selected} pathName="login">
                 <NavLink to="/login">
-                  <HeaderImage src={HomeLogo}/>
+                  <ExitButton>X</ExitButton>
                 </NavLink>
               </NavItem>
             </MainNav>
           </HeaderContainer>
+        )}
+      </AppContext.Consumer>
       )
   }
 }
@@ -62,6 +66,14 @@ const NavItem = styled.div`
   }
   width: 50%;
   margin: 1em;
+
+`
+
+const ExitButton = styled.div`
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Myraid Pro", sans-serif;
+  margin-right: 20%;
 
 `
 

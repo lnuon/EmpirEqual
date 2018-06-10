@@ -88,7 +88,7 @@ export default Login;
 const LoginImage = styled.img`
   width: 60%;
   height: auto;
-  margin-bottom: 50px;
+  margin: 10% 7%;
 `
 
 const LoginLink = styled.a`
@@ -99,6 +99,7 @@ const LoginLink = styled.a`
   margin-right: 2.5%;
   font-weight: 100;
   margin-bottom: 7px;
+  cursor: pointer;
 `
 
 const NewAccountButton = styled(Link)`
