@@ -4,6 +4,7 @@ import { withFormik } from 'formik';
 import MainLogo from '../assests/EmpirEqual_Login.png';
 import { Link } from 'react-router-dom';
 import { EnterHolder, EnterButton, EnterFormHolder, EnterInput, EnterLabel } from '../styles/EnterStyled.js';
+import signIn from '../utils/signIn';
 
 const InnerForm = ({
   values,
@@ -15,7 +16,7 @@ const InnerForm = ({
   isSubmitting,
 }) => (
   <EnterFormHolder onSubmit={handleSubmit}>
-    <EnterLabel>USERNAME</EnterLabel>
+    <EnterLabel>EMAIL</EnterLabel>
     <EnterInput
       type="username"
       name="username"
@@ -59,6 +60,8 @@ const LoginForm = withFormik({
       setErrors /* setValues, setStatus, and other goodies */,
     }
   ) => {
+    const { username } = values;
+    signIn(username);
     //LoginToMyApp(values).then(
       //user => {
         //setSubmitting(false);
