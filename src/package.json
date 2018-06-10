@@ -4,9 +4,9 @@
   "description": "Source code for website",
   "main": "src/main.ts",
   "scripts": {
-    "start": "react-scripts start",
-    "build-fe": "pwd && cd ./backend/sections/home/react && react-scripts build",
-    "build": "./node_modules/typescript/bin/tsc",
+    "build": "npm run build-be && npm run build-fe",
+    "build-fe": "cd ./frontend && react-scripts build",
+    "build-be": "./node_modules/typescript/bin/tsc",
     "test": "echo \"Error: no test specified\" && exit 0",
     "gen-tsd": "gen-tsd",
     "prod": "node -r 'ts-node/register' -r 'tsconfig-paths/register' backend/main.ts",

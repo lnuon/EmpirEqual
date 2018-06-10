@@ -1,3 +1,5 @@
+src/frontend/build
+
 node_modules
 bower_components
 dist
