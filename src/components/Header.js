@@ -23,10 +23,11 @@ class Header extends Component {
   }
 
   render() {
+    const { isLoggedIn } = this.props;
+    console.log('isLoggedIn:', isLoggedIn);
     return (
-          <HeaderContainer isLoggedIn={this.props.isLoggedIn} >
+          <HeaderContainer isLoggedIn={ isLoggedIn }>
             <HeaderLogo src={logo} />
-            {this.props.isLoggedIn}
             <MainNav>
               <NavItem onClick={() => this.changeSelected('')} selected={this.state.selected} pathName="">
                 <NavLink to="/">
@@ -52,11 +53,7 @@ export default withRouter(Header);
 
 const HeaderContainer = styled.div`
   display: flex;
-<<<<<<< HEAD
   width: ${props => props.isLoggedIn ? '50%' : '100%'};
-=======
-  width: 40%;
->>>>>>> 992b0365c265a29bd41eed0b748f9379c4695ea0
 `
 
 const MainNav = styled.ul`

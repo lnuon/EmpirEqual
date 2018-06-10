@@ -7,37 +7,33 @@ import About from './components/About.js';
 import Enter from './components/Enter.js';
 import SignUp from './components/SignUp.js';
 import Login from './components/Login.js';
-import styled from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 import createBrowserHistory from 'history/createBrowserHistory';
+import globalStyles from './styles/global';
 
-const AppContext = React.createContext();
+const { Provider, Consumer } = React.createContext(false);
 
-const history = createBrowserHistory()
+const history = createBrowserHistory();
+
+injectGlobal`${globalStyles}`;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: true
-    }
-    this.updateValue = this.updateValue.bind(this);
-  }
+
   updateValue = (key, val) => {
      this.setState({[key]: val});
   }
+  
   render() {
     return (
-      <AppContext.Provider value={{
-                                state: this.state,
-                                updateValue: this.updateValue}}>
+      <Provider value={true}>
         <div>
             <Router
             history={history}
             >
-              <AppContext.Consumer>
+              <Consumer>
                 {(isLoggedIn) => (
                   <div>
-                    <Header isLoggedIn={(isLoggedIn) => isLoggedIn} page=""/>
+                    <Header isLoggedIn={isLoggedIn} page=""/>
                     <Drilldown>
                       <Route exact path="/" component={Home}/>
                       <Route exact path="/about" component={About}/>
@@ -47,10 +43,10 @@ class App extends Component {
                     </Drilldown>
                   </div>
                 )}
-              </AppContext.Consumer>
+              </Consumer>
             </Router>
         </div>
-      </AppContext.Provider>
+      </Provider>
     );
   }
 }
