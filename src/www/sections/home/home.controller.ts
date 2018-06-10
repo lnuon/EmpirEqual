@@ -7,8 +7,8 @@ import { Response, NextFunction, Request } from "express"
 import { basename } from 'path';
 import { HttpController } from 'core/interfaces/http.controller';
 
-@mvc.controller("/home", __dirname)
-@mvc.statics("react/build")
+@mvc.controller("/", __dirname)
+@mvc.statics("react/build/static")
 export class HomeController extends HttpController {
     private instanceId: Number = Math.random() 
 
