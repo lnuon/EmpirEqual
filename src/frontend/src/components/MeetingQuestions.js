@@ -4,36 +4,46 @@ import { Link } from 'react-router-dom';
 import HappyLogo from '../assests/icons/EMP_emoticon.png'
 import SadLogo from '../assests/icons/EMP_EMOTICON2.png'
 import ExitLogo from '../assests/icons/EMP_Asset_11.png'
+import LeftArrow from '../assests/icons/EMP_Asset_10.png'
+import RightArrow from '../assests/icons/EMP_Asset_12.png'
 
-class Meetings extends Component {
+class MeetingQuestions extends Component {
+  constructor(props) {
+    super(props)
+    this.selectQ = this.selectQ.bind(this);
+  }
+  selectQ() {
+    console.log('hit')
+  }
   render() {
     return (
-      <FeedbackHolder>
-				<FeedbackLink to="/meetingQs">
-					<FeedbackImage src={HappyLogo}/>
-					<FeedbackTitle>
-            SUBMIT POSITIVE FEEDBACK
-					</FeedbackTitle>
-				</FeedbackLink>
-				<FeedbackLink to="/meetingQs">
-					<FeedbackImage src={SadLogo}/>
-					<FeedbackTitle>
-            SUBMIT NEGATIVE FEEDBACK
-					</FeedbackTitle>
-				</FeedbackLink>
+      <QuestionsHolder>
+        {this.props.questions.map((x, i) =>
+          <QuestionItem>
+            <QuestionTitle onClick={() => this.selectQ()}>
+              {i}
+            </QuestionTitle>
+          </QuestionItem>
+        )}
         <ExitButton>
+          <ExitLink to="/meetings">
+            <ExitImage src={LeftArrow}/>
+          </ExitLink>
           <ExitLink to="/">
             <ExitImage src={ExitLogo}/>
           </ExitLink>
-        </ExitButton>
-      </FeedbackHolder>
+          <ExitLink to="/submit">
+            <ExitImage src={RightArrow}/>
+          </ExitLink>
+          </ExitButton>
+      </QuestionsHolder>
     );
   }
 }
 
-export default Meetings;
+export default MeetingQuestions;
 
-const FeedbackHolder = styled.div`
+const QuestionsHolder = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +53,7 @@ const FeedbackHolder = styled.div`
   margin-right: auto;
 `
 
-const FeedbackLink = styled(Link)`
+const QuestionItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,13 +67,7 @@ const FeedbackLink = styled(Link)`
   text-align: center;
 `
 
-const FeedbackImage = styled.img`
-  width: 20%;
-  max-width: 50px;
-  margin-right: 20px;
-`
-
-const FeedbackTitle = styled.div`
+const QuestionTitle = styled.div`
   font-size: 16px;
   width: 60%;
   text-align: left;
