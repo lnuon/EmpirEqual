@@ -47,7 +47,7 @@ class DashBoard extends Component {
           <KudosLink to="/kudos">
             <KudosImage src={KudosLogo}/>
             <KudosTitle>
-              Kudos
+              KUDOS
             </KudosTitle>
           </KudosLink>
         </KudosButton>

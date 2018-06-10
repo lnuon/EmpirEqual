@@ -17,6 +17,7 @@ export const EnterButton = styled.button`
   color: black;
   font-size: 26px;
   font-family: "myraid pro", sans-serif;
+  cursor: pointer;
 `
 
 export const EnterFormHolder = styled.form`
@@ -36,6 +37,7 @@ export const EnterInput = styled.input`
   max-width: 400px;
   height: 55px;
   font-size: 26px;
+  padding-left: 10px;
 `
 
 export const EnterLabel = styled.label`

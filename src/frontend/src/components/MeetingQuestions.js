@@ -10,7 +10,13 @@ import RightArrow from '../assests/icons/EMP_Asset_12.png'
 class MeetingQuestions extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      questions: []
+    }
     this.selectQ = this.selectQ.bind(this);
+  }
+  onComponentDidMount() {
+    this.setState({ questions: ["Did you feel?", "Did you feel?", "Did you feel?", "Did you feel?"]})
   }
   selectQ() {
     console.log('hit')
@@ -18,7 +24,7 @@ class MeetingQuestions extends Component {
   render() {
     return (
       <QuestionsHolder>
-        {this.props.questions.map((x, i) =>
+        {this.state.questions.map((x, i) =>
           <QuestionItem>
             <QuestionTitle onClick={() => this.selectQ()}>
               {i}

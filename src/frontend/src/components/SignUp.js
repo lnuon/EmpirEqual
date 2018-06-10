@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { desktop } from '../styles';
 import EmpirEqualSelect from './EmpirEqualSelect';
 import { withFormik } from 'formik';
 import { Link } from 'react-router-dom';
