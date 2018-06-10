@@ -10,27 +10,47 @@ import Login from './components/Login.js';
 import styled from 'styled-components';
 import createBrowserHistory from 'history/createBrowserHistory';
 
+const AppContext = React.createContext();
+
 const history = createBrowserHistory()
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: true
+    }
+    this.updateValue = this.updateValue.bind(this);
+  }
+  updateValue = (key, val) => {
+     this.setState({[key]: val});
+  }
   render() {
     return (
-      <div>
-        <Router
-        history={history}
-        >
-          <div>
-            <Header page=""/>
-            <Drilldown>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/about" component={About}/>
-              <Route exact path="/enter" component={Enter}/>
-              <Route exact path="/signup" component={SignUp}/>
-              <Route exact path="/login" component={Login}/>
-            </Drilldown>
-          </div>
-        </Router>
-      </div>
+      <AppContext.Provider value={{
+                                state: this.state,
+                                updateValue: this.updateValue}}>
+        <div>
+            <Router
+            history={history}
+            >
+              <AppContext.Consumer>
+                {(isLoggedIn) => (
+                  <div>
+                    <Header isLoggedIn={(isLoggedIn) => isLoggedIn} page=""/>
+                    <Drilldown>
+                      <Route exact path="/" component={Home}/>
+                      <Route exact path="/about" component={About}/>
+                      <Route exact path="/enter" component={Enter}/>
+                      <Route exact path="/signup" component={SignUp}/>
+                      <Route exact path="/login" component={Login}/>
+                    </Drilldown>
+                  </div>
+                )}
+              </AppContext.Consumer>
+            </Router>
+        </div>
+      </AppContext.Provider>
     );
   }
 }
