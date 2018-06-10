@@ -65,7 +65,6 @@ export class ExpressServer implements CanRun {
 
             _application.set('view engine', 'hbs')
             _application.engine('.hbs', hbs)
-            // _application.engine('.hbs', ExpressHandlebarsSkate.Engine)
 
             _appRouter.use(this._requestLog.Logger())
 
@@ -99,9 +98,11 @@ export class ExpressServer implements CanRun {
     private setStatics(controller: HttpController, controllerMetadata: any) {
         let _application = this._application;
 
-        let staticsPathRel = Reflect.getMetadata(metadata.staticsPropertyId, controller.constructor) || './static';
-        let staticsPathUrl = path.normalize(`${controllerMetadata.path}/${staticsPathRel}`);
-        let staticsPathAbs = path.normalize(`${controllerMetadata.dirname}/${staticsPathRel}`);
+        let staticPathsObj = Reflect.getMetadata(metadata.staticsPropertyId, controller.constructor);
+        let serverFilesystemPath = staticPathsObj.modulePath;
+        let urlPath = staticPathsObj.serverPath;
+        let staticsPathUrl = path.normalize(`${controllerMetadata.path}/${urlPath}`);
+        let staticsPathAbs = path.normalize(`${controllerMetadata.dirname}/${serverFilesystemPath}`);
 
         this._appRouter.use(staticsPathUrl, express.static(staticsPathAbs));
     }

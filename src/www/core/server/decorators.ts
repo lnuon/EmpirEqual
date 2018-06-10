@@ -55,12 +55,22 @@ export namespace mvc {
         }
     }
 
-    export function statics(path: string = 'static', ...middleware: RequestHandler[]) {
-        let _path = path || 'static' // explicitly passing null is not allowed
+    /**
+     * 
+     * @param modulePath relative to the section/module
+     * @param serverPath can override the server path, default is the module path
+     * @param middleware 
+     */
+    export function statics(modulePath: string = 'static', serverPath: string, ...middleware: RequestHandler[]) {
+        let defaultPath = 'static';
+        let paths = {
+            modulePath: modulePath || defaultPath, // explicitly passing null is not allowed
+            serverPath: serverPath || modulePath || defaultPath
+        }
 
         return function (target: any) {
             assertController(target, statics.name)
-            Reflect.defineMetadata(metadata.staticsPropertyId, _path, target);
+            Reflect.defineMetadata(metadata.staticsPropertyId, paths, target);
         }
     }
 

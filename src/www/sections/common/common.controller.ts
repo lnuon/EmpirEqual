@@ -8,7 +8,7 @@ import { basename } from 'path';
 import { HttpController } from 'core/interfaces/http.controller';
 
 @mvc.controller("/common", __dirname)
-@mvc.statics("static")
+@mvc.statics("static", null)
 export class CommonController extends HttpController {
     private instanceId: Number = Math.random() 
 

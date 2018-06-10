@@ -8,7 +8,7 @@ import { basename } from 'path';
 import { HttpController } from 'core/interfaces/http.controller';
 
 @mvc.controller("/", __dirname)
-@mvc.statics("react/build/static")
+@mvc.statics("react/build", "/")
 export class HomeController extends HttpController {
     private instanceId: Number = Math.random() 
 
@@ -22,18 +22,18 @@ export class HomeController extends HttpController {
     //     res.render('index');
     // }
 
-    @mvc.http.get('/favicon.ico')
-    public favicon(req: Request, res: Response, next: NextFunction) {
-        res.sendFile('./static/favicon.png', { root: __dirname })
-    }
+    // @mvc.http.get('/favicon.ico')
+    // public favicon(req: Request, res: Response, next: NextFunction) {
+    //     res.sendFile('./static/favicon.png', { root: __dirname })
+    // }
 
-    @mvc.http.get('/sitemap.xml')
-    public sitemap(req: Request, res: Response, next: NextFunction) {
-        res.sendFile('./static/sitemap.xml', { root: __dirname,  })
-    }
+    // @mvc.http.get('/sitemap.xml')
+    // public sitemap(req: Request, res: Response, next: NextFunction) {
+    //     res.sendFile('./static/sitemap.xml', { root: __dirname,  })
+    // }
 
-    @mvc.http.get('/robots.txt')
-    public robots(req: Request, res: Response, next: NextFunction) {
-        res.sendFile('./static/robots.txt', { root: __dirname,  })
-    }
+    // @mvc.http.get('/robots.txt')
+    // public robots(req: Request, res: Response, next: NextFunction) {
+    //     res.sendFile('./static/robots.txt', { root: __dirname,  })
+    // }
 }
