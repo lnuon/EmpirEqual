@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import HomeLogo from '../assests/EmpirEqual_home.svg';
+import HomeLogo from '../assests/EMP_User.svg';
 import { AppContext } from '../AppProvider.js';
 
 class Header extends Component {
@@ -35,7 +35,9 @@ class Header extends Component {
               </NavItem>
               <NavItem className="right" onClick={() => this.changeSelected('login')} selected={this.state.selected} pathName="login">
                 <NavLink to="/login">
-                  <ExitButton>X</ExitButton>
+                  <ExitButton>
+                    <HeaderImage src={HomeLogo}></HeaderImage>
+                  </ExitButton>
                 </NavLink>
               </NavItem>
             </MainNav>
@@ -78,5 +80,7 @@ const ExitButton = styled.div`
 `
 
 const HeaderImage = styled.img`
-  width: 5%;
+  width: 10%;
+  max-width: 50px;
+  min-width: 20px;
 `
