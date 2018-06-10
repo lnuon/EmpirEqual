@@ -2,7 +2,7 @@
 
 fetch-deps:
 	@npm install
-	@bower install
+	@bower install --allow-root
 
 build: fetch-deps
 	@npm run build
