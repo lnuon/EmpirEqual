@@ -147,7 +147,7 @@ class SignUp extends Component {
   render() {
     return (
       <EnterHolder>
-        <ExitButton to="/login">X</ExitButton>
+        <ExitButton to="/">X</ExitButton>
         <h1>Sign Up</h1>
         <SignUpForm />
       </EnterHolder>

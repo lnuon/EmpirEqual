@@ -45,7 +45,7 @@ class MeetingQuestions extends Component {
           <ExitLink to="/meetings">
             <ExitImage src={LeftArrow}/>
           </ExitLink>
-          <ExitLink to="/">
+          <ExitLink to="/home">
             <ExitImage src={ExitLogo}/>
           </ExitLink>
           <ExitLink to="/thankyou">

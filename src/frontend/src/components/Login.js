@@ -34,14 +34,14 @@ const InnerForm = ({
       value={values.password}
     />
     {touched.password && errors.password && <div>{errors.password}</div>}
-    <GoToDashboard to="/">
+    <GoToDashboard to="/home">
       <EnterButton type="submit" disabled={isSubmitting}>
         LOG IN
       </EnterButton>
     </GoToDashboard>
     <NewAccountButton to="/signup">NEW ACCOUNT</NewAccountButton>
-    <LoginLink to="/">FORGOT USERNAME</LoginLink>
-    <LoginLink to="/">FORGOT PASSWORD</LoginLink>
+    <LoginLink to="/home">FORGOT USERNAME</LoginLink>
+    <LoginLink to="/home">FORGOT PASSWORD</LoginLink>
   </EnterFormHolder>
 );
 

@@ -22,7 +22,7 @@ class Meetings extends Component {
 					</FeedbackTitle>
 				</FeedbackLink>
         <ExitButton>
-          <ExitLink to="/">
+          <ExitLink to="/home">
             <ExitImage src={ExitLogo}/>
           </ExitLink>
         </ExitButton>

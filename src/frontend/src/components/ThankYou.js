@@ -28,10 +28,10 @@ class ThankYou extends Component {
             <ExitLink to="/meetingQs">
               <ExitImage src={LeftArrow}/>
             </ExitLink>
-            <ExitLink to="/">
+            <ExitLink to="/home">
               <ExitImage src={ExitLogo}/>
             </ExitLink>
-            <ExitLink to="/">
+            <ExitLink to="/home">
               <ExitImage src={RightArrow}/>
             </ExitLink>
           </ExitButton>
