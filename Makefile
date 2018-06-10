@@ -42,8 +42,8 @@ copy-to-server:
 		'sudo -- sh -c "cp /home/ubuntu/$(packagename).tgz /root && whoami && ls -lrta /root \
 			&& mkdir -p /root/$(packagename) && tar -xvzf /root/$(packagename).tgz -C /root/$(packagename) \
 			&& mkdir -p /root/.config/systemd/user \
-			&& cp /root/$(packagename)/empirequal.svc /etc/systemd/system/empirequal.service" \
-			&& systemctl daemon-reload'
+			&& cp /root/$(packagename)/empirequal.svc /etc/systemd/system/empirequal.service \
+			&& systemctl daemon-reload"'
 	@echo artifact uploaded...
 
 .PHONY: publish
