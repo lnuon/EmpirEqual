@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { withFormik } from 'formik';
-import MainLogo from '../assests/EmpirEqual_Login.svg';
+import MainLogo from '../assests/EmpirEqual_Login.png';
 import { Link } from 'react-router-dom';
 import { EnterHolder, EnterButton, EnterFormHolder, EnterInput, EnterLabel } from '../styles/EnterStyled.js';
 import signIn from '../utils/signIn';
@@ -34,9 +34,11 @@ const InnerForm = ({
       value={values.password}
     />
     {touched.password && errors.password && <div>{errors.password}</div>}
-    <EnterButton type="submit" disabled={isSubmitting}>
-      LOG IN
-    </EnterButton>
+    <GoToDashboard to="/">
+      <EnterButton type="submit" disabled={isSubmitting}>
+        LOG IN
+      </EnterButton>
+    </GoToDashboard>
     <NewAccountButton to="/signup">NEW ACCOUNT</NewAccountButton>
     <LoginLink to="/">FORGOT USERNAME</LoginLink>
     <LoginLink to="/">FORGOT PASSWORD</LoginLink>
@@ -89,9 +91,14 @@ class Login extends Component {
 export default Login;
 
 const LoginImage = styled.img`
-  width: 60%;
+  width: 40%;
   height: auto;
   margin: 10% 7%;
+`
+
+const GoToDashboard = styled(Link)`
+  width: 100%;
+  cursor: pointer;
 `
 
 const LoginLink = styled.a`

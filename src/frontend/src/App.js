@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard.js';
 import Feed from './components/Feed.js';
 import Meetings from './components/Meetings.js';
 import MeetingQs from './components/MeetingQuestions.js';
+import ThankYou from './components/ThankYou.js';
 import Profile from './components/Profile.js';
 import SaySomething from './components/Profile.js';
 import styled, { injectGlobal } from 'styled-components';
@@ -41,6 +42,7 @@ class App extends Component {
                 <Route exact path="/interactions" component={Home}/>
                 <Route exact path="/meetings" component={Meetings}/>
                 <Route exact path="/meetingQs" component={MeetingQs}/>
+                <Route exact path="/thankyou" component={ThankYou}/>
                 <Route exact path="/profile" component={Profile}/>
                 <Route exact path="/say-something" component={Home}/>
                 <Route exact path="/support" component={Home}/>

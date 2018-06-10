@@ -6,11 +6,11 @@ import { inject, injectable } from "inversify";
 import { Response, NextFunction, Request } from "express"
 import { basename } from 'path';
 import { HttpController } from 'core/interfaces/http.controller';
-import { User } from  'data/user'
+import { MeetingQuestion } from  'data/meeting.question'
 import { v4 } from 'uuid'
 
 
-@mvc.controller("/users", __dirname)
+@mvc.controller("/meetingquestions", __dirname)
 export class UsersController extends HttpController {
     private instanceId: Number = Math.random() 
 
@@ -19,26 +19,18 @@ export class UsersController extends HttpController {
     }
 
     @mvc.http.get("/")
-    public getusers(req: Request, res: Response, next: NextFunction) {
-        let userEmail: string = req.params.email || req.query.email;
+    public getquestions(req: Request, res: Response, next: NextFunction) {
+        let id: string = req.params.id || req.query.id;
 
-        if (!userEmail) {
-            return User.LoadAll()
-                .then((users) => users.map(x => {
-                    x.password = null;
-                    return x
-                }))
+        if (!id) {
+            return MeetingQuestion.LoadAll()
                 .then((users) => res.json(users))
                 .catch((err) => {
                     this._log.error(err)
                     res.sendStatus(500)
                 });
         } else {
-            return User.Load(userEmail)
-                .then(x => {
-                    x.password = null;
-                    return x;
-                })
+            return MeetingQuestion.Load(id)
                 .then(x => res.json(x))
                 .catch((err) => {
                     this._log.error(err)
@@ -48,14 +40,13 @@ export class UsersController extends HttpController {
     }
 
     @mvc.http.post("/")
-    public createUsers(req: Request, res: Response, next: NextFunction) {
+    public createquestion(req: Request, res: Response, next: NextFunction) {
         var temp: any = req.body;
 
-        var userId = v4()
-        var user = new User(userId, temp.email, temp.fullname, temp.password, temp.age, temp.description)
+        var q = new MeetingQuestion(v4(), temp.question)
         
-        var result = User.Save(user)
-            .then(() => res.json(user))
+        var result = MeetingQuestion.Save(q)
+            .then(() => res.sendStatus(200))
             .catch((err) => {
                 this._log.error(err)
                 res.sendStatus(500)
