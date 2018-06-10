@@ -22,12 +22,12 @@
         "emitDecoratorMetadata": true,
         "paths": {
             "*": [
-                "www/*"
+                "backend/*"
             ]
         }
     },
     "include": [
-        "www/**/*.ts",
-        "www/**/*.tsx"
+        "backend/**/*.ts",
+        "backend/**/*.tsx"
     ]
 }

@@ -8,7 +8,7 @@ import { basename } from 'path';
 import { HttpController } from 'core/interfaces/http.controller';
 
 @mvc.controller("/", __dirname)
-@mvc.statics("react/build", "/")
+@mvc.statics("../../../frontend/build", "/")
 export class HomeController extends HttpController {
     private instanceId: Number = Math.random() 
 

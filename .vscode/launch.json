@@ -24,6 +24,7 @@
             "request": "launch",
             "cwd": "${workspaceFolder}/src",
             "name": "Launch Program",
+            "preLaunchTask": "tsc-compile",
             "runtimeArgs": [
                 "-r",
                 "ts-node/register",
@@ -31,7 +32,7 @@
                 "tsconfig-paths/register"
             ],
             "args": [
-                "${workspaceFolder}/src/www/main.ts"
+                "${workspaceFolder}/src/backend/main.ts"
             ],
             "console": "integratedTerminal"
             // "stopOnEntry": true
