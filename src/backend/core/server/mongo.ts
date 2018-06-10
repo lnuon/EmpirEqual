@@ -3,11 +3,5 @@ import { provide } from 'inversify-binding-decorators';
 
 @provide("Mongo")
 export class Mongo {
-    constructor() {
-        console.log('hi')
-    }
-
-    test() {
-        console.log('yo');
-    }
+    static Client = MongoClient.connect('mongodb://localhost:27017/empirequal').then(x => x.db())
 }
