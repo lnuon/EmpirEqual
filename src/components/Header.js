@@ -23,7 +23,7 @@ class Header extends Component {
   render() {
     return (
         <div>
-          <ul>
+          <MainNav>
             <li onClick={() => this.changeSelected('')} selected={this.state.selected} pathName="">
               <NavLink to="/">
                 Home
@@ -39,9 +39,13 @@ class Header extends Component {
                 Signup/Login
               </NavLink>
             </li>
-          </ul>
+          </MainNav>
         </div>
     )
   }
 }
 export default withRouter(Header);
+
+const MainNav = styled.ul`
+  list-style: none;
+`
