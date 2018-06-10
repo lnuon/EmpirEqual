@@ -8,6 +8,7 @@ export const normalize = css`
   }
 
   body {
+    font-family: 'Crete Round', serif;    
     position: relative;
     -webkit-font-smoothing: antialiased;
     font-smooth: antialiased;
@@ -56,6 +57,7 @@ export default css`
 
   body {
     margin: 0;
+    padding: 0;
     font-size: 14px;
     line-height: ${20 / 14};
   }

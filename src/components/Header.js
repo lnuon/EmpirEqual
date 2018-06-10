@@ -50,7 +50,7 @@ export default withRouter(Header);
 
 const HeaderContainer = styled.div`
   display: flex;
-
+  width: 40%;
 `
 
 const MainNav = styled.ul`

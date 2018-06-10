@@ -10,7 +10,7 @@ import Login from './components/Login.js';
 import styled from 'styled-components';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-const history = createBrowserHistory()
+const history = createBrowserHistory();
 
 class App extends Component {
   render() {
