@@ -9,6 +9,10 @@ packagename := empirequal
 
 tmp := $(shell mktemp -d)
 
+.PHONY: build
+build:
+	@cd ./src && make build
+
 .PHONY: run
 run:
 	@cd ./src && make dev

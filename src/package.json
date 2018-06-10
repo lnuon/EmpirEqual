@@ -9,8 +9,8 @@
     "build": "./node_modules/typescript/bin/tsc",
     "test": "echo \"Error: no test specified\" && exit 0",
     "gen-tsd": "gen-tsd",
-    "prod": "node -r 'ts-node/register' -r 'tsconfig-paths/register' www/main.ts",
-    "dev": "NODE_ENV=development && node -r 'ts-node/register' -r 'tsconfig-paths/register' www/main.ts"
+    "prod": "node -r 'ts-node/register' -r 'tsconfig-paths/register' backend/main.ts",
+    "dev": "NODE_ENV=development && node -r 'ts-node/register' -r 'tsconfig-paths/register' backend/main.ts"
   },
   "author": "NeverOddOrEven",
   "license": "MIT",
