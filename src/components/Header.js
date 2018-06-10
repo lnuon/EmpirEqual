@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
+import logo from '../assests/EmpirEqual_v2horiz.svg';
 
 class Header extends Component {
   constructor (props) {
@@ -22,30 +23,49 @@ class Header extends Component {
 
   render() {
     return (
-        <div>
+        <HeaderContainer>
+          <HeaderLogo src={logo} />
           <MainNav>
-            <li onClick={() => this.changeSelected('')} selected={this.state.selected} pathName="">
+            <NavItem onClick={() => this.changeSelected('')} selected={this.state.selected} pathName="">
               <NavLink to="/">
                 Home
               </NavLink>
-            </li>
-            <li onClick={() => this.changeSelected('about')} selected={this.state.selected} pathName="about">
+            </NavItem>
+            <NavItem onClick={() => this.changeSelected('about')} selected={this.state.selected} pathName="about">
               <NavLink to="/about">
                 About
               </NavLink>
-            </li>
-            <li onClick={() => this.changeSelected('enter')} selected={this.state.selected} pathName="enter">
+            </NavItem>
+            <NavItem onClick={() => this.changeSelected('enter')} selected={this.state.selected} pathName="enter">
               <NavLink to="/enter">
                 Signup/Login
               </NavLink>
-            </li>
+            </NavItem>
           </MainNav>
-        </div>
+        </HeaderContainer>
     )
   }
 }
 export default withRouter(Header);
 
+const HeaderContainer = styled.div`
+  display: flex;
+
+`
+
 const MainNav = styled.ul`
   list-style: none;
+  display: flex;
+`
+
+const NavItem = styled.li`
+  a {
+    text-decoration: none;
+  }
+  margin: 1em;
+`
+
+const HeaderLogo = styled.img`
+  width: 90%;
+
 `
