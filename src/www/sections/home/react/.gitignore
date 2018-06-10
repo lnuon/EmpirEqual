@@ -1,11 +1,3 @@
-node_modules
-bower_components
-dist
-packages
-temp.html
-src/**/*.js
-src/**/*.jsx
-src/**/*.js.map
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies

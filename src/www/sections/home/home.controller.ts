@@ -7,7 +7,8 @@ import { Response, NextFunction, Request } from "express"
 import { basename } from 'path';
 import { HttpController } from 'core/interfaces/http.controller';
 
-@mvc.controller("/", __dirname)
+@mvc.controller("/home", __dirname)
+@mvc.statics("react/build")
 export class HomeController extends HttpController {
     private instanceId: Number = Math.random() 
 
@@ -15,11 +16,11 @@ export class HomeController extends HttpController {
         super(log)
     }
 
-    @mvc.http.get("/")
-    public get(req: Request, res: Response, next: NextFunction) {
-        res.app.locals.title = "Title"
-        res.render('index');
-    }
+    // @mvc.http.get("/")
+    // public get(req: Request, res: Response, next: NextFunction) {
+    //     res.app.locals.title = "Title"
+    //     res.render('index');
+    // }
 
     @mvc.http.get('/favicon.ico')
     public favicon(req: Request, res: Response, next: NextFunction) {
